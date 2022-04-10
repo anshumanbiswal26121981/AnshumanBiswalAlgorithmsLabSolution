@@ -15,7 +15,13 @@ public class MinimumNumberOfDenominations {
       System.out.println("Enter the currency denominations values:");
       int [] values = new int[N];
       for (int i = 0; i < N; ++i) {
-            values[i] = sc.nextInt();
+            int num = sc.nextInt();
+            if (num != 0) {
+               values[i] = num;
+            } else {
+               throw new ArithmeticException("0 is not a valid denomination.");
+            }
+
       }
       System.out.println("Enter the amount you want to pay:");
       int amt = sc.nextInt();
@@ -37,7 +43,6 @@ public class MinimumNumberOfDenominations {
    private static void quickSort(int[] values, int low, int high) {
       if (low < high) {
          int pivot = partition(values, low, high);
-         System.out.println(Arrays.toString(values));
          quickSort(values, low, pivot - 1);  // Before pi
          quickSort(values, pivot + 1, high); // After pi
       }
